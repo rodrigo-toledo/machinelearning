@@ -17,6 +17,17 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
 
+    %theta = pinv(X'*X) * X' * y;
+    mult = alpha/m;
+    coso = ((X * theta) - y);
+    
+    theta_tmp = theta;
+    first_col = X(:,1);
+    sec_col = X(:,2);
+    
+    theta(1) = theta_tmp(1) - mult * coso' * first_col;
+    theta(2) = theta_tmp(2) - mult * coso' * sec_col;
+
 
 
 
